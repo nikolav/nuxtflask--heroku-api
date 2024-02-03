@@ -1,0 +1,67 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Var {
+  id: ID!
+  name: String!
+  value: String
+}
+
+type StorageFileInfo {
+  id: ID!
+  file_id: String!
+  user_id: Int!
+  title: String!
+  description: String!
+  filename: String!
+  path: String!
+  size: Int!
+  mimetype: String!
+  public: Boolean!
+  created_at: String!
+  updated_at: String!
+}
+
+type StorageFileRemovedDataInfo {
+  file_id: String!
+  user_id: Int!
+  title: String!
+  description: String!
+  filename: String!
+  path: String!
+  size: Int!
+  mimetype: String!
+  public: Boolean!
+}
+
+type StorageFileRemovedInfoSuccess {
+  id: ID!
+  data: StorageFileRemovedDataInfo!
+  created_at: String!
+  updated_at: String!
+}
+
+type StorageFileRemovedInfo {
+  error: String
+  file: StorageFileRemovedInfoSuccess
+}
+
+type Query {
+  
+  status: String!
+
+  # vars
+  vars: [Var!]!
+
+  # storage
+  storageList: [StorageFileInfo!]!
+}
+
+type Mutation {
+
+  # storage
+  storageRemoveFile(file_id: String!): StorageFileRemovedInfo
+}
+
