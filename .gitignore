@@ -338,3 +338,4 @@ cython_debug/
 heroku-config-set.sh
 heroku-config-deploy.sh
 client.http
+heroku-config-set.sh
