@@ -5,7 +5,7 @@ from flask            import Flask
 from flask_restful    import Api
 from flask_cors       import CORS
 from flask_sqlalchemy import SQLAlchemy
-# from flask_talisman   import Talisman
+from flask_talisman   import Talisman
 # https://github.com/miguelgrinberg/flask-socketio/issues/40#issuecomment-48268526
 from flask_socketio import SocketIO
 
@@ -27,7 +27,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = not PRODUCTION
 
-# talisman = Talisman(app, force_https = False)
+talisman = Talisman(app, force_https = False)
 cors     = CORS(app, supports_credentials = True)
 api      = Api(app)
 db       = SQLAlchemy(app)
