@@ -27,7 +27,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = not PRODUCTION
 
-talisman = Talisman(app, force_https = False)
+talisman = Talisman(app)
 cors     = CORS(app, supports_credentials = True)
 api      = Api(app)
 db       = SQLAlchemy(app)
